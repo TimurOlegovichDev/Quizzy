@@ -8,17 +8,28 @@ CONFIG += c++11
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-INCLUDEPATH += window/
+INCLUDEPATH += window/ \
+               controller/ \
+               enum/ \
+               model/
 
 SOURCES += \
     app.cpp \
-    window/mainwindow.cpp
+    controller/maincontroller.cpp \
+    model/windowrequest.cpp \
+    window/mainwindow.cpp \
+    window/redactwindow.cpp
 
 HEADERS += \
-    window/mainwindow.h
+    controller/maincontroller.h \
+    enum/Statement.h \
+    model/windowrequest.h \
+    window/mainwindow.h \
+    window/redactwindow.h
 
 FORMS += \
-    window/mainwindow.ui
+    window/mainwindow.ui \
+    window/redactwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

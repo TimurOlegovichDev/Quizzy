@@ -7,12 +7,22 @@
  * Является точкой входа в программу.
  */
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow), log("MainWindow"){
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow),
+    log("MainWindow")
+{
     ui->setupUi(this);
 }
 
 MainWindow::~MainWindow(){
     qInfo(log) << "Закрытие главного окна";
     delete ui;
+}
+
+
+void MainWindow::on_redactButton_clicked(){
+    emit sendRequest(WindowRequest(Statement::QUIZ_REDACT));
+    this->close();
 }
 
