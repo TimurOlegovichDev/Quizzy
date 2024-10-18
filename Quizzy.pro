@@ -2,7 +2,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -11,11 +11,15 @@ CONFIG += c++11
 INCLUDEPATH += window/ \
                controller/ \
                enum/ \
-               model/
+               model/ \
+               model/entity
 
 SOURCES += \
     app.cpp \
     controller/maincontroller.cpp \
+    model/entity/answer.cpp \
+    model/entity/question.cpp \
+    model/entity/task.cpp \
     model/windowrequest.cpp \
     window/mainwindow.cpp \
     window/redactwindow.cpp
@@ -23,6 +27,9 @@ SOURCES += \
 HEADERS += \
     controller/maincontroller.h \
     enum/Statement.h \
+    model/entity/answer.h \
+    model/entity/question.h \
+    model/entity/task.h \
     model/windowrequest.h \
     window/mainwindow.h \
     window/redactwindow.h
