@@ -4,15 +4,15 @@ TaskRepository::TaskRepository(){
 
 }
 
-QList<Task> TaskRepository::getAll(){
+QList<Task*> TaskRepository::getAll(){
     return data;
 }
 
-void TaskRepository::add(Task task){
+void TaskRepository::add(Task* task){
     data.append(task);
 }
 
-Task TaskRepository::get(int id) {
+Task* TaskRepository::get(int id) {
     if (id >= 0 && id < data.size()) {
         return data.at(id);
     } else {

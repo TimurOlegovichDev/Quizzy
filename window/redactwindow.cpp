@@ -86,7 +86,7 @@ void RedactWindow::sendTasksToRepository() {
                 answers.append(answer);
             }
         }
-        taskRepository->add(Task(answers, question));
+        taskRepository->add(new Task(answers, question));
     }
 }
 

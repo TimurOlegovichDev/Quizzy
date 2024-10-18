@@ -16,6 +16,7 @@ class Task
         bool isCorrect();
         Question getQuestion();
         void complete(Answer answer);
+        int timeInSeconds = 30;
 
     private:
         QList<Answer> answers;

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>800</height>
+    <width>800</width>
+    <height>1000</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -221,6 +221,22 @@ color: rgb(244, 244, 244);
       </widget>
      </item>
      <item>
+      <spacer name="horizontalSpacer_8">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QRadioButton" name="answer1">
@@ -235,7 +251,11 @@ color: rgb(244, 244, 244);
     spacing: 5px; /* Расстояние между текстом и кнопкой */
     font-size: 22px; /* Размер шрифта */
     color: #e7e7e7; /* Цвет текста */
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 178, 102, 0), stop:0.55 rgba(235, 148, 61, 0), stop:0.977528 rgba(0, 0, 0, 0), stop:1 rgba(0, 0, 0, 0));
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, 
+        stop:0 rgba(255, 178, 102, 0), 
+        stop:0.55 rgba(235, 148, 61, 0), 
+        stop:0.977528 rgba(0, 0, 0, 0), 
+        stop:1 rgba(0, 0, 0, 0));
 }
 
 QRadioButton::indicator {
@@ -253,14 +273,16 @@ QRadioButton::indicator:checked {
 
 QRadioButton::indicator:unchecked:hover {
     border: 2px solid #BA68C8; /* Цвет рамки при наведении */
-}
-
-QRadioButton::indicator:checked:hover {
-    background-color: #9C27B0; /* Цвет фона при наведении на выбранный элемент */
 }</string>
          </property>
          <property name="text">
           <string>Текст ответа отсутствует!</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -277,7 +299,11 @@ QRadioButton::indicator:checked:hover {
     spacing: 5px; /* Расстояние между текстом и кнопкой */
     font-size: 22px; /* Размер шрифта */
     color: #e7e7e7; /* Цвет текста */
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 178, 102, 0), stop:0.55 rgba(235, 148, 61, 0), stop:0.977528 rgba(0, 0, 0, 0), stop:1 rgba(0, 0, 0, 0));
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, 
+        stop:0 rgba(255, 178, 102, 0), 
+        stop:0.55 rgba(235, 148, 61, 0), 
+        stop:0.977528 rgba(0, 0, 0, 0), 
+        stop:1 rgba(0, 0, 0, 0));
 }
 
 QRadioButton::indicator {
@@ -295,14 +321,16 @@ QRadioButton::indicator:checked {
 
 QRadioButton::indicator:unchecked:hover {
     border: 2px solid #BA68C8; /* Цвет рамки при наведении */
-}
-
-QRadioButton::indicator:checked:hover {
-    background-color: #9C27B0; /* Цвет фона при наведении на выбранный элемент */
 }</string>
          </property>
          <property name="text">
           <string>Текст ответа отсутствует!</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -319,7 +347,11 @@ QRadioButton::indicator:checked:hover {
     spacing: 5px; /* Расстояние между текстом и кнопкой */
     font-size: 22px; /* Размер шрифта */
     color: #e7e7e7; /* Цвет текста */
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 178, 102, 0), stop:0.55 rgba(235, 148, 61, 0), stop:0.977528 rgba(0, 0, 0, 0), stop:1 rgba(0, 0, 0, 0));
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, 
+        stop:0 rgba(255, 178, 102, 0), 
+        stop:0.55 rgba(235, 148, 61, 0), 
+        stop:0.977528 rgba(0, 0, 0, 0), 
+        stop:1 rgba(0, 0, 0, 0));
 }
 
 QRadioButton::indicator {
@@ -337,14 +369,16 @@ QRadioButton::indicator:checked {
 
 QRadioButton::indicator:unchecked:hover {
     border: 2px solid #BA68C8; /* Цвет рамки при наведении */
-}
-
-QRadioButton::indicator:checked:hover {
-    background-color: #9C27B0; /* Цвет фона при наведении на выбранный элемент */
 }</string>
          </property>
          <property name="text">
           <string>Текст ответа отсутствует!</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -361,7 +395,11 @@ QRadioButton::indicator:checked:hover {
     spacing: 5px; /* Расстояние между текстом и кнопкой */
     font-size: 22px; /* Размер шрифта */
     color: #e7e7e7; /* Цвет текста */
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 178, 102, 0), stop:0.55 rgba(235, 148, 61, 0), stop:0.977528 rgba(0, 0, 0, 0), stop:1 rgba(0, 0, 0, 0));
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, 
+        stop:0 rgba(255, 178, 102, 0), 
+        stop:0.55 rgba(235, 148, 61, 0), 
+        stop:0.977528 rgba(0, 0, 0, 0), 
+        stop:1 rgba(0, 0, 0, 0));
 }
 
 QRadioButton::indicator {
@@ -379,14 +417,19 @@ QRadioButton::indicator:checked {
 
 QRadioButton::indicator:unchecked:hover {
     border: 2px solid #BA68C8; /* Цвет рамки при наведении */
-}
-
-QRadioButton::indicator:checked:hover {
-    background-color: #9C27B0; /* Цвет фона при наведении на выбранный элемент */
 }</string>
          </property>
          <property name="text">
           <string>Текст ответа отсутствует!</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -452,7 +495,7 @@ QRadioButton::indicator:checked:hover {
        <property name="maximumSize">
         <size>
          <width>400</width>
-         <height>100</height>
+         <height>70</height>
         </size>
        </property>
        <property name="styleSheet">
@@ -481,6 +524,91 @@ background-color: rgb(159, 44, 179);
      </item>
      <item>
       <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <spacer name="horizontalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="toMainWindowButton">
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    border: 2px solid #e31c20; /* Красный цвет границы */
+    border-radius: 15px; 
+    background-color:#e31c20; /* Красный цвет фона */
+    color: white; 
+    padding: 20px; 
+	font: 75 18pt &quot;Bahnschrift&quot;;
+} 
+
+QPushButton:hover { 
+    background-color: #C70039; /* Более темный красный при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #900C3F; /* Еще более темный красный при нажатии */
+    padding-left: 8px;
+    padding-top: 8px;
+}</string>
+       </property>
+       <property name="text">
+        <string>В главное меню</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_7">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>

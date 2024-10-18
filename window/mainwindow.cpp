@@ -39,3 +39,8 @@ void MainWindow::on_startButton_clicked(){
     this->close();
 }
 
+
+void MainWindow::on_exitButton_clicked(){
+    exit(0);
+}
+

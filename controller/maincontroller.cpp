@@ -24,7 +24,9 @@ MainController::MainController(MainWindow* mainWindow,
                      this,
                      &MainController::handleRequest
     );
+    qInfo() << "Инжект репозитория в классы";
     this->taskRepository = taskRepository;
+    quizWindow->setTaskRepository(taskRepository);
     mainWindow->setTaskRepository(taskRepository);
     redactWindow->setTaskRepository(taskRepository);
 }
@@ -38,6 +40,7 @@ void MainController::openMainWindow(){
 void MainController::openQuizWindow(){
     qInfo() << "Открывается окно квиза";
     quizWindow->show();
+    quizWindow->start();
 }
 
 void MainController::openQuizRedactWindow(){

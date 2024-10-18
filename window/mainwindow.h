@@ -25,6 +25,8 @@ class MainWindow : public QMainWindow {
 
         void on_startButton_clicked();
 
+        void on_exitButton_clicked();
+
     private:
         Ui::MainWindow *ui;
         QLoggingCategory log;
