@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Quizzy</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../resourses.qrc">
+    <normaloff>:/icon/quiz.png</normaloff>:/icon/quiz.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background: qlineargradient(x1:0, y1:0, x2:1, y2:1 stop:0 #ffffff, stop:1 #e0e0e0);</string>
   </property>
@@ -25,7 +29,7 @@
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="app_title_label">
       <property name="minimumSize">
        <size>
         <width>500</width>
@@ -52,7 +56,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="startButton">
       <property name="minimumSize">
        <size>
         <width>450</width>
@@ -91,7 +95,7 @@ background-color: #45a049;
      </widget>
     </item>
     <item row="2" column="0">
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="redactButton">
       <property name="minimumSize">
        <size>
         <width>500</width>
@@ -131,11 +135,13 @@ background-color: #004085;
      </widget>
     </item>
    </layout>
-   <zorder>pushButton</zorder>
-   <zorder>pushButton_2</zorder>
-   <zorder>label</zorder>
+   <zorder>startButton</zorder>
+   <zorder>redactButton</zorder>
+   <zorder>app_title_label</zorder>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resourses.qrc"/>
+ </resources>
  <connections/>
 </ui>
