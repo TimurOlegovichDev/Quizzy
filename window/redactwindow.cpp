@@ -2,6 +2,7 @@
 #include "ui_redactwindow.h"
 #include <QDebug>
 #include <QMessageBox>
+#include <question.h>
 
 RedactWindow::RedactWindow(QWidget *parent) :
     QWidget(parent),
@@ -11,8 +12,11 @@ RedactWindow::RedactWindow(QWidget *parent) :
 }
 
 void RedactWindow::on_toMainWindowBtn_clicked(){
-    this->close();
-    emit sendRequest(WindowRequest(Statement::MAIN));
+    if(!hasEmptyCells()){
+        sendTasksToRepository();
+        emit sendRequest(WindowRequest(Statement::MAIN));
+        this->close();
+    }
 }
 
 
@@ -47,22 +51,13 @@ void RedactWindow::on_markCorrectAnswer_clicked() {
 
 void RedactWindow::handleSelectedItem(QTableWidgetItem* item) {
     int row = item->row();
-    if (!hasGreenCellInRow(row)) {
-        item->setBackground(QColor(Qt::green));
-    } else {
-        showMessage("В этой строке уже есть зеленая ячейка.",
-                    "Пожалуйста, выберите другую ячейку.");
-    }
-}
-
-bool RedactWindow::hasGreenCellInRow(int row) {
-    for (int col = 0; col < ui->answersTable->columnCount(); ++col) {
-        QTableWidgetItem* item = ui->answersTable->item(row, col);
-        if (item && item->background() == QColor(Qt::green)) {
-            return true;
+    for (int column = 0; column < ui->answersTable->columnCount(); column++) {
+        QTableWidgetItem* answerItem = ui->answersTable->item(row, column);
+        if (answerItem != nullptr) {
+            answerItem->setBackground(QColor(Qt::white));
         }
     }
-    return false;
+    item->setBackground(QColor(Qt::green));
 }
 
 void RedactWindow::showMessage(
@@ -76,7 +71,65 @@ void RedactWindow::showMessage(
     msgBox.exec();
 }
 
-RedactWindow::~RedactWindow()
-{
+RedactWindow::~RedactWindow(){
     delete ui;
+}
+
+void RedactWindow::setTaskRepository(TaskRepository* taskRepository){
+    this->taskRepository = taskRepository;
+}
+
+
+void RedactWindow::sendTasksToRepository() {
+    taskRepository->clear();
+    int rowCount = ui->answersTable->rowCount();
+    for (int row = 0; row < rowCount; ++row) {
+        Question question(ui->questionTable->item(row, 0)->text());
+        QList<Answer> answers;
+        for (int col = 0; col < ui->answersTable->columnCount(); ++col) {
+            if (ui->answersTable->item(row, col)->background() == QColor(Qt::green)) {
+                Answer answer(
+                            ui->answersTable->item(row, col)->text(),
+                            true
+                );
+                answers.append(answer);
+            } else {
+                Answer answer(
+                            ui->answersTable->item(row, col)->text(),
+                            false
+                );
+                answers.append(answer);
+            }
+        }
+        taskRepository->add(Task(answers, question));
+    }
+}
+
+bool RedactWindow::hasEmptyCells() {
+    int rowCount = ui->questionTable->rowCount();
+    for (int row = 0; row < rowCount; ++row) {
+        if (ui->questionTable->item(row, 0) == nullptr ||
+            ui->questionTable->item(row, 0)->text().isEmpty()) {
+            showMessage("Ошибка", "Вопрос не может быть пустым в строке " + QString::number(row + 1));
+            return true;
+        }
+    }
+    for (int row = 0; row < rowCount; ++row) {
+        bool hasCorrectAnswer = false;
+        for (int col = 0; col < ui->answersTable->columnCount(); ++col) {
+            if (ui->answersTable->item(row, col) == nullptr ||
+                ui->answersTable->item(row, col)->text().isEmpty()) {
+                showMessage("Ошибка", "Ответ не может быть пустым в строке " + QString::number(row + 1) + ", столбце " + QString::number(col + 1));
+                return true;
+            }
+            if (ui->answersTable->item(row, col)->background() == QColor(Qt::green)) {
+                hasCorrectAnswer = true;
+            }
+        }
+        if (!hasCorrectAnswer) {
+            showMessage("Ошибка", "В строке " + QString::number(row + 1) + " должен быть хотя бы один правильный ответ.");
+            return true;
+        }
+    }
+    return false;
 }

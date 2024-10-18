@@ -5,12 +5,15 @@
 #include <Statement.h>
 #include "redactwindow.h"
 #include "mainwindow.h"
+#include "taskrepository.h"
 
 class MainController : public QObject {
     Q_OBJECT
 
 public:
-    MainController(MainWindow* mainWindow, RedactWindow* redactWindow);
+    MainController(MainWindow* mainWindow,
+                   RedactWindow* redactWindow,
+                   TaskRepository* taskRepository);
 
     void openMainWindow();
     void openQuizWindow();
@@ -21,6 +24,7 @@ public slots:
     void handleRequest(WindowRequest request);
 
 private:
+    TaskRepository* taskRepository;
     MainWindow* mainWindow;
     RedactWindow* redactWindow;
 };

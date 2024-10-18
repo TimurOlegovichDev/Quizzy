@@ -20,6 +20,10 @@ MainWindow::~MainWindow(){
     delete ui;
 }
 
+void MainWindow::setTaskRepository(TaskRepository* taskRepository){
+     this->taskRepository = taskRepository;
+}
+
 
 void MainWindow::on_redactButton_clicked(){
     emit sendRequest(WindowRequest(Statement::QUIZ_REDACT));

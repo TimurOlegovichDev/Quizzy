@@ -18,9 +18,9 @@ Question Task::getQuestion() {
     return question;
 }
 
-void Task::complete(Answer answer) {
-    for (const auto& ans : answers) {
-        if (ans.isCorrectAnswer() && ans.getText() == answer.getText()) {
+void Task::complete(Answer currentAnswer) {
+    for (auto& answer : answers) {
+        if (answer.isCorrectAnswer() && answer.getText() == currentAnswer.getText()) {
             isDoneCorrect = true;
             break;
         }

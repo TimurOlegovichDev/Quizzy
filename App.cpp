@@ -16,7 +16,12 @@ int main(int argc, char *argv[]){
     QApplication a(argc, argv);
     MainWindow mainWindow;
     RedactWindow redactWindow;
-    MainController *controller = new MainController(&mainWindow, &redactWindow);
+    TaskRepository taskRepository;
+    MainController *controller = new MainController(
+                &mainWindow,
+                &redactWindow,
+                &taskRepository
+    );
     controller->openMainWindow();
     return a.exec();
 }

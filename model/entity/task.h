@@ -19,8 +19,8 @@ class Task
 
     private:
         QList<Answer> answers;
-        bool isDoneCorrect = false;
         Question question;
+        bool isDoneCorrect = false;
     };
 
 #endif // TASK_H

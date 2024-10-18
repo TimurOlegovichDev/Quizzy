@@ -1,9 +1,12 @@
 #ifndef REDACTWINDOW_H
 #define REDACTWINDOW_H
 
+#include <QList>
 #include <QTableWidget>
 #include <QWidget>
+#include <task.h>
 #include <windowrequest.h>
+#include <taskrepository.h>
 
 namespace Ui {
     class RedactWindow;
@@ -17,6 +20,7 @@ class RedactWindow : public QWidget
         explicit RedactWindow(QWidget *parent = nullptr);
         ~RedactWindow();
 
+        void setTaskRepository(TaskRepository* taskRepository);
     private slots:
         void on_toMainWindowBtn_clicked();
 
@@ -35,6 +39,11 @@ class RedactWindow : public QWidget
 
         void showMessage(const QString &title, const QString &text);
 
+        bool hasEmptyCells();
+
+        TaskRepository* taskRepository;
+
+        void sendTasksToRepository();
     signals:
          void sendRequest(WindowRequest request);
     };

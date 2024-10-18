@@ -12,7 +12,8 @@ INCLUDEPATH += window/ \
                controller/ \
                enum/ \
                model/ \
-               model/entity
+               model/entity \
+               repository/
 
 SOURCES += \
     app.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
     model/entity/question.cpp \
     model/entity/task.cpp \
     model/windowrequest.cpp \
+    repository/taskrepository.cpp \
     window/mainwindow.cpp \
     window/redactwindow.cpp
 
@@ -31,6 +33,7 @@ HEADERS += \
     model/entity/question.h \
     model/entity/task.h \
     model/windowrequest.h \
+    repository/taskrepository.h \
     window/mainwindow.h \
     window/redactwindow.h
 

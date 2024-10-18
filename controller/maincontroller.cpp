@@ -1,6 +1,8 @@
 #include "maincontroller.h"
 
-MainController::MainController(MainWindow* mainWindow, RedactWindow* redactWindow)
+MainController::MainController(MainWindow* mainWindow,
+                               RedactWindow* redactWindow,
+                               TaskRepository* taskRepository)
     : QObject(),
       mainWindow(mainWindow),
       redactWindow(redactWindow)
@@ -15,10 +17,14 @@ MainController::MainController(MainWindow* mainWindow, RedactWindow* redactWindo
                      this,
                      &MainController::handleRequest
     );
+    this->taskRepository = taskRepository;
+    mainWindow->setTaskRepository(taskRepository);
+    redactWindow->setTaskRepository(taskRepository);
 }
 
 void MainController::openMainWindow(){
     qInfo() << "Открывается главное окно";
+    qInfo() << "В репозитории сейчас тасков: " + QString::number(taskRepository->getAll().size());
     mainWindow->show();
 }
 

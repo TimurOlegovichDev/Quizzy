@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QLoggingCategory>
 #include <windowrequest.h>
+#include <taskrepository.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,12 +18,15 @@ class MainWindow : public QMainWindow {
         explicit MainWindow(QWidget *parent = nullptr);
         ~MainWindow();
 
+        void setTaskRepository(TaskRepository* taskRepository);
+
     private slots:
         void on_redactButton_clicked();
 
     private:
         Ui::MainWindow *ui;
         QLoggingCategory log;
+        TaskRepository* taskRepository = nullptr;
 
     signals:
          void sendRequest(WindowRequest request);
