@@ -24,6 +24,7 @@ SOURCES += \
     model/windowrequest.cpp \
     repository/taskrepository.cpp \
     window/mainwindow.cpp \
+    window/quizwindow.cpp \
     window/redactwindow.cpp
 
 HEADERS += \
@@ -35,10 +36,12 @@ HEADERS += \
     model/windowrequest.h \
     repository/taskrepository.h \
     window/mainwindow.h \
+    window/quizwindow.h \
     window/redactwindow.h
 
 FORMS += \
     window/mainwindow.ui \
+    window/quizwindow.ui \
     window/redactwindow.ui
 
 # Default rules for deployment.

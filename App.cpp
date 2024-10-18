@@ -9,17 +9,18 @@
 /**
  * @brief Обеспечивает запуск главного окна и всего приложения
  */
-
 int main(int argc, char *argv[]){
     QLoggingCategory log("App");
     qInfo(log) << "Запуск приложения";
     QApplication a(argc, argv);
     MainWindow mainWindow;
     RedactWindow redactWindow;
+    QuizWindow quizWindow;
     TaskRepository taskRepository;
     MainController *controller = new MainController(
                 &mainWindow,
                 &redactWindow,
+                &quizWindow,
                 &taskRepository
     );
     controller->openMainWindow();

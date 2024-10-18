@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <Statement.h>
+#include <quizwindow.h>
 #include "redactwindow.h"
 #include "mainwindow.h"
 #include "taskrepository.h"
@@ -13,6 +14,7 @@ class MainController : public QObject {
 public:
     MainController(MainWindow* mainWindow,
                    RedactWindow* redactWindow,
+                   QuizWindow* quizWindow,
                    TaskRepository* taskRepository);
 
     void openMainWindow();
@@ -27,6 +29,7 @@ private:
     TaskRepository* taskRepository;
     MainWindow* mainWindow;
     RedactWindow* redactWindow;
+    QuizWindow* quizWindow;
 };
 
 #endif // MAINCONTROLLER_H

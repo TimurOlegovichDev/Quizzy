@@ -25,4 +25,5 @@ void Task::complete(Answer currentAnswer) {
             break;
         }
     }
+    isDoneCorrect = false;
 }

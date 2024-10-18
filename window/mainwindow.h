@@ -23,6 +23,8 @@ class MainWindow : public QMainWindow {
     private slots:
         void on_redactButton_clicked();
 
+        void on_startButton_clicked();
+
     private:
         Ui::MainWindow *ui;
         QLoggingCategory log;

@@ -24,9 +24,18 @@ void MainWindow::setTaskRepository(TaskRepository* taskRepository){
      this->taskRepository = taskRepository;
 }
 
-
 void MainWindow::on_redactButton_clicked(){
     emit sendRequest(WindowRequest(Statement::QUIZ_REDACT));
+    this->close();
+}
+
+
+void MainWindow::on_startButton_clicked(){
+    if(taskRepository->getAll().size() == 0){
+        qInfo() << "Тасков нет, запуск квиза невозможен";
+        return;
+    }
+    emit sendRequest(WindowRequest(Statement::QUIZ_RUN));
     this->close();
 }
 

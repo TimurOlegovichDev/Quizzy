@@ -11,6 +11,14 @@ RedactWindow::RedactWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
+RedactWindow::~RedactWindow(){
+    delete ui;
+}
+
+void RedactWindow::setTaskRepository(TaskRepository* taskRepository){
+    this->taskRepository = taskRepository;
+}
+
 void RedactWindow::on_toMainWindowBtn_clicked(){
     if(!hasEmptyCells()){
         sendTasksToRepository();
@@ -18,7 +26,6 @@ void RedactWindow::on_toMainWindowBtn_clicked(){
         this->close();
     }
 }
-
 
 void RedactWindow::on_decrementRow_clicked() {
     int rowCount = ui->answersTable->rowCount();
@@ -35,8 +42,6 @@ void RedactWindow::on_incrementRow_clicked() {
     ui->questionTable->setItem(rowCount, 0, new QTableWidgetItem());
     ui->answersTable->setItem(rowCount, 0, new QTableWidgetItem());
 }
-
-
 
 void RedactWindow::on_markCorrectAnswer_clicked() {
     qDebug() << "Пользователь отмечает ячейку";
@@ -59,26 +64,6 @@ void RedactWindow::handleSelectedItem(QTableWidgetItem* item) {
     }
     item->setBackground(QColor(Qt::green));
 }
-
-void RedactWindow::showMessage(
-        const QString& title,
-        const QString& text) {
-    QMessageBox msgBox;
-    msgBox.setFixedSize(600, 400);
-    msgBox.setText(title);
-    msgBox.setIcon(QMessageBox::Warning);
-    msgBox.setInformativeText(text);
-    msgBox.exec();
-}
-
-RedactWindow::~RedactWindow(){
-    delete ui;
-}
-
-void RedactWindow::setTaskRepository(TaskRepository* taskRepository){
-    this->taskRepository = taskRepository;
-}
-
 
 void RedactWindow::sendTasksToRepository() {
     taskRepository->clear();
@@ -132,4 +117,15 @@ bool RedactWindow::hasEmptyCells() {
         }
     }
     return false;
+}
+
+void RedactWindow::showMessage(
+        const QString& title,
+        const QString& text) {
+    QMessageBox msgBox;
+    msgBox.setFixedSize(600, 400);
+    msgBox.setText(title);
+    msgBox.setIcon(QMessageBox::Warning);
+    msgBox.setInformativeText(text);
+    msgBox.exec();
 }
