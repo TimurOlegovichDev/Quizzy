@@ -23,6 +23,7 @@ SOURCES += \
     model/entity/task.cpp \
     model/windowrequest.cpp \
     repository/taskrepository.cpp \
+    service/statisticservice.cpp \
     window/mainwindow.cpp \
     window/quizwindow.cpp \
     window/redactwindow.cpp
@@ -35,6 +36,7 @@ HEADERS += \
     model/entity/task.h \
     model/windowrequest.h \
     repository/taskrepository.h \
+    service/statisticservice.h \
     window/mainwindow.h \
     window/quizwindow.h \
     window/redactwindow.h
