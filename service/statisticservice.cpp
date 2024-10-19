@@ -21,7 +21,7 @@ QTableWidget *StatisticService::getTableStatistic(const QList<Task*> tasks){
      for(auto& task : tasks){
          QTableWidgetItem* itemQuestion = new QTableWidgetItem(task->getQuestion().getText());
          QTableWidgetItem* itemCorrectAnswer = new QTableWidgetItem(task->getCorrectAnswer()->getText());
-         QTableWidgetItem* itemTime = new QTableWidgetItem(task->timeInSeconds);
+         QTableWidgetItem* itemTime = new QTableWidgetItem(QString::number(task->timeInSeconds));
          table->setItem(row, 0, itemQuestion);
          table->setItem(row, 1, itemCorrectAnswer);
          table->setItem(row, 3, itemTime);

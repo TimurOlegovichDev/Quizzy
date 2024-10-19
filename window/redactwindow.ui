@@ -91,17 +91,17 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        <column/>
        <item row="0" column="0">
         <property name="text">
-         <string>1</string>
+         <string>Сколько будет 2+2?</string>
         </property>
        </item>
        <item row="1" column="0">
         <property name="text">
-         <string>2</string>
+         <string>Какая самая большая страна по занимаемой площади?</string>
         </property>
        </item>
        <item row="2" column="0">
         <property name="text">
-         <string>3</string>
+         <string>Какой ВУЗ находится в Москве?</string>
         </property>
        </item>
       </widget>
@@ -309,12 +309,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        <column/>
        <item row="0" column="0">
         <property name="text">
-         <string>Вопрос 1</string>
+         <string>4</string>
         </property>
        </item>
        <item row="0" column="1">
         <property name="text">
-         <string>Вопрос 2</string>
+         <string>3</string>
         </property>
         <property name="background">
          <brush brushstyle="NoBrush">
@@ -328,17 +328,17 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        </item>
        <item row="0" column="2">
         <property name="text">
-         <string>Вопрос 3</string>
+         <string>1</string>
         </property>
        </item>
        <item row="0" column="3">
         <property name="text">
-         <string>Вопрос 4</string>
+         <string>5</string>
         </property>
        </item>
        <item row="1" column="0">
         <property name="text">
-         <string>Вопрос 1</string>
+         <string>Сша</string>
         </property>
         <property name="background">
          <brush brushstyle="NoBrush">
@@ -352,27 +352,27 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        </item>
        <item row="1" column="1">
         <property name="text">
-         <string>Вопрос 2</string>
+         <string>Россия</string>
         </property>
        </item>
        <item row="1" column="2">
         <property name="text">
-         <string>Вопрос 3</string>
+         <string>Китай</string>
         </property>
        </item>
        <item row="1" column="3">
         <property name="text">
-         <string>Вопрос 4</string>
+         <string>Бразилия</string>
         </property>
        </item>
        <item row="2" column="0">
         <property name="text">
-         <string>Вопрос 1</string>
+         <string>КФУ</string>
         </property>
        </item>
        <item row="2" column="1">
         <property name="text">
-         <string>Вопрос 2</string>
+         <string>УдГУ</string>
         </property>
         <property name="background">
          <brush brushstyle="NoBrush">
@@ -386,12 +386,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
        </item>
        <item row="2" column="2">
         <property name="text">
-         <string>Вопрос 3</string>
+         <string>КубГУ</string>
         </property>
        </item>
        <item row="2" column="3">
         <property name="text">
-         <string>Вопрос 4</string>
+         <string>МГУ</string>
         </property>
        </item>
       </widget>
