@@ -20,12 +20,19 @@ void StatisticWindow::setTaskRepository(TaskRepository *taskRepository){
     this->taskRepository = taskRepository;
 }
 
+/**
+ * @brief При нажатии на кнопку выхода в меню, отправляется запрос контроллеру
+ * и закрывается текущее окно
+ */
 void StatisticWindow::on_toMainWindowButton_clicked(){
     qInfo() << "Запрос на выход в главное меню";
     emit sendRequest(WindowRequest(Statement::MAIN));
     this->close();
 }
 
+/**
+ * @brief Получаем статистику от сервиса и выводим ее на экран
+ */
 void StatisticWindow::showStatistic(){
     qInfo() << "Выполняется вывод статистики";
     if(taskRepository == nullptr || statisticService == nullptr){
@@ -59,10 +66,6 @@ void StatisticWindow::showStatistic(){
                                  )
                              + "%"
                              );
-    QList<Task*> copyTasks = taskRepository->getAll();
-    taskRepository->clear();
-    for(auto& task : copyTasks){
-        taskRepository->add(new Task(task->getAnswers(), task->getQuestion()));
-    }
+    taskRepository->resetAllTasks();
     qInfo() << "Статистика выведена";
 }

@@ -1,9 +1,7 @@
 #include "statisticservice.h"
 #include <QDebug>
 
-StatisticService::StatisticService(){
-
-}
+StatisticService::StatisticService(){}
 
 /**
  * @brief Метод предназначен для создания таблицы с отображением вопрос, правильного ответа
@@ -14,18 +12,21 @@ StatisticService::StatisticService(){
  */
 QTableWidget *StatisticService::getTableStatistic(const QList<Task*> tasks){
     qInfo() << "Выполняется подсчет статистики";
-     QTableWidget* table = new QTableWidget(tasks.size(), 3);
-     table->setStyleSheet("background-color: rgb(255, 255, 255);");
+     QTableWidget* table = new QTableWidget(tasks.size(), 4);
+     table->setStyleSheet("background-color: rgb(255, 255, 255); font: 75  18pt \"Bahnschrift\";");
      table->setHorizontalHeaderLabels(
-                 QStringList() << "Вопрос" << "Правильный ответ" << "Оценка"
+                 QStringList() << "Вопрос" << "Правильный ответ" << "Оценка" << "Оставшееся время"
      );
      int row = 0;
      for(auto& task : tasks){
          QTableWidgetItem* itemQuestion = new QTableWidgetItem(task->getQuestion().getText());
          QTableWidgetItem* itemCorrectAnswer = new QTableWidgetItem(task->getCorrectAnswer()->getText());
+         QTableWidgetItem* itemTime = new QTableWidgetItem(task->timeInSeconds);
          table->setItem(row, 0, itemQuestion);
          table->setItem(row, 1, itemCorrectAnswer);
+         table->setItem(row, 3, itemTime);
 
+         table->setRowHeight(row, 50);
          QTableWidgetItem* itemColor = new QTableWidgetItem();
          if(!task->hasAnswer()){
              itemColor->setBackgroundColor(Qt::yellow);

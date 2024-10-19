@@ -15,6 +15,8 @@ class TaskRepository
         void add(Task* task);
         Task* get(int id);
         void clear();
+        void resetAllTasks();
+
     private:
 
         QList<Task*> data;

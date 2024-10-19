@@ -24,10 +24,13 @@ void QuizWindow::setTaskRepository(TaskRepository *taskRepository){
     this->taskRepository = taskRepository;
 }
 
+/**
+ * @brief Выполняет переключение к следующей задаче
+ */
 void QuizWindow::nextQuiz(){
-    currectTask->timeInSeconds = 30;
     if(taskId >= taskRepository->getAll().size()-1){
         emit sendRequest(WindowRequest(Statement::QUIZ_RESULT));
+        this->close();
         return;
     }
     timer->start(1000);
@@ -60,6 +63,9 @@ void QuizWindow::on_completeButton_clicked(){
    quizTimeOut();
 }
 
+/**
+ * @brief Анимация таймера в самом окне и уменьшение времени на секунду
+ */
 void QuizWindow::decrementTime(){
     if(taskRepository->get(taskId)->timeInSeconds <= 0) {
         quizTimeOut();
@@ -70,6 +76,9 @@ void QuizWindow::decrementTime(){
     );
 }
 
+/**
+ * @brief Останавливает текущее решение и переходит к следующему заданию
+ */
 void QuizWindow::quizTimeOut(){
     qDebug() << "Решение окончено, оставшееся время: " +
                 QString::number(currectTask->timeInSeconds);

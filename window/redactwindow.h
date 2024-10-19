@@ -44,7 +44,7 @@ class RedactWindow : public QWidget
 
         void handleSelectedItem(QTableWidgetItem *item);
 
-        void showMessage(const QString &title, const QString &text);
+        void showWarnMessage(const QString &title, const QString &text);
 
         bool hasEmptyCells();
 
