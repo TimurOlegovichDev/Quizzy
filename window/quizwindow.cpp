@@ -27,7 +27,7 @@ void QuizWindow::setTaskRepository(TaskRepository *taskRepository){
 void QuizWindow::nextQuiz(){
     currectTask->timeInSeconds = 30;
     if(taskId >= taskRepository->getAll().size()-1){
-        on_toMainWindowButton_clicked();
+        emit sendRequest(WindowRequest(Statement::QUIZ_RESULT));
         return;
     }
     timer->start(1000);

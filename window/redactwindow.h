@@ -12,6 +12,13 @@ namespace Ui {
     class RedactWindow;
 }
 
+
+/**
+ * @brief  Окно редактирования квиза. Представляет собой синхронизированные по
+ * количеству строк (задач) таблицы (вопросы и ответы). Пользователь может самостоятельно
+ * задать необходимые вопросы и отметить верные ответы. Имеется автоматическая валидация
+ * таблиц, для правильного определения задач в системе (отметка правильных ответов, заполнение строк)
+ */
 class RedactWindow : public QWidget
     {
         Q_OBJECT
@@ -44,6 +51,7 @@ class RedactWindow : public QWidget
         TaskRepository* taskRepository;
 
         void sendTasksToRepository();
+
     signals:
          void sendRequest(WindowRequest request);
     };

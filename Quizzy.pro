@@ -26,7 +26,8 @@ SOURCES += \
     service/statisticservice.cpp \
     window/mainwindow.cpp \
     window/quizwindow.cpp \
-    window/redactwindow.cpp
+    window/redactwindow.cpp \
+    window/statisticwindow.cpp
 
 HEADERS += \
     controller/maincontroller.h \
@@ -39,12 +40,14 @@ HEADERS += \
     service/statisticservice.h \
     window/mainwindow.h \
     window/quizwindow.h \
-    window/redactwindow.h
+    window/redactwindow.h \
+    window/statisticwindow.h
 
 FORMS += \
     window/mainwindow.ui \
     window/quizwindow.ui \
-    window/redactwindow.ui
+    window/redactwindow.ui \
+    window/statisticwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

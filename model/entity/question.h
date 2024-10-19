@@ -4,7 +4,9 @@
 #include <QString>
 
 
-
+/**
+ * @brief Класс вопроса, хранит в себе текст вопроса
+ */
 class Question
     {
     public:

@@ -7,7 +7,12 @@
 #include "redactwindow.h"
 #include "mainwindow.h"
 #include "taskrepository.h"
+#include "statisticwindow.h"
 
+
+/**
+ * @brief Главный контроллер приложения, переключает окна между собо
+ */
 class MainController : public QObject {
     Q_OBJECT
 
@@ -15,7 +20,8 @@ public:
     MainController(MainWindow* mainWindow,
                    RedactWindow* redactWindow,
                    QuizWindow* quizWindow,
-                   TaskRepository* taskRepository);
+                   TaskRepository* taskRepository,
+                   StatisticWindow* statisticWindow);
 
     void openMainWindow();
     void openQuizWindow();
@@ -30,6 +36,7 @@ private:
     MainWindow* mainWindow;
     RedactWindow* redactWindow;
     QuizWindow* quizWindow;
+    StatisticWindow* statisticWindow;
 };
 
 #endif // MAINCONTROLLER_H

@@ -3,8 +3,9 @@
 
 #include <task.h>
 
-
-
+/**
+ * @brief Главное хранилище задач
+ */
 class TaskRepository
     {
     public:

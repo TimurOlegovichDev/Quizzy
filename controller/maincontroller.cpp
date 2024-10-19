@@ -3,11 +3,13 @@
 MainController::MainController(MainWindow* mainWindow,
                                RedactWindow* redactWindow,
                                QuizWindow* quizWindow,
-                               TaskRepository* taskRepository)
+                               TaskRepository* taskRepository,
+                               StatisticWindow* statisticWindow)
     : QObject(),
       mainWindow(mainWindow),
       redactWindow(redactWindow),
-      quizWindow(quizWindow)
+      quizWindow(quizWindow),
+      statisticWindow(statisticWindow)
 {
     QObject::connect(this->mainWindow,
                      &MainWindow::sendRequest,
@@ -49,7 +51,8 @@ void MainController::openQuizRedactWindow(){
 }
 
 void MainController::openQuizResultWindow(){
-
+    qInfo() << "Открывается окно результата";
+    statisticWindow->show();
 }
 
 void MainController::handleRequest(WindowRequest request){
@@ -65,6 +68,10 @@ void MainController::handleRequest(WindowRequest request){
         }
         case Statement::QUIZ_RUN: {
                 openQuizWindow();
+                break;
+        }
+        case Statement::QUIZ_RESULT: {
+                openQuizResultWindow();
                 break;
         }
         default: {

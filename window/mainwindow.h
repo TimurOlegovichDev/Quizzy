@@ -10,6 +10,11 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+
+/**
+ * @brief Класс главного окна, с которого и должна запускаться программа.
+ * Окно позволяет переходить в окно редактирования квиза и окно самого квиза
+ */
 class MainWindow : public QMainWindow {
 
         Q_OBJECT
