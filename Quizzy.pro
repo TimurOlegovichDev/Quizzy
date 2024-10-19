@@ -13,7 +13,8 @@ INCLUDEPATH += window/ \
                enum/ \
                model/ \
                model/entity \
-               repository/
+               repository/ \
+               service/
 
 SOURCES += \
     app.cpp \

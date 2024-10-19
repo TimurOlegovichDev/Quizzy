@@ -26,8 +26,15 @@ MainController::MainController(MainWindow* mainWindow,
                      this,
                      &MainController::handleRequest
     );
+    QObject::connect(this->statisticWindow,
+                     &StatisticWindow::sendRequest,
+                     this,
+                     &MainController::handleRequest
+    );
     qInfo() << "Инжект репозитория в классы";
     this->taskRepository = taskRepository;
+    statisticWindow->setTaskRepository(taskRepository);
+    statisticWindow->setStatisticService(new StatisticService);
     quizWindow->setTaskRepository(taskRepository);
     mainWindow->setTaskRepository(taskRepository);
     redactWindow->setTaskRepository(taskRepository);
@@ -53,6 +60,7 @@ void MainController::openQuizRedactWindow(){
 void MainController::openQuizResultWindow(){
     qInfo() << "Открывается окно результата";
     statisticWindow->show();
+    statisticWindow->showStatistic();
 }
 
 void MainController::handleRequest(WindowRequest request){

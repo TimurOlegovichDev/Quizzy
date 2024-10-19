@@ -1,9 +1,12 @@
 #include "task.h"
+#include <QDebug>
 
 Task::Task(QList<Answer> answers, Question question)
     : answers(std::move(answers)),
       question(std::move(question)),
-      isDoneCorrect(false) {}
+      isDoneCorrect(false) {
+    initCorrectAnswer();
+}
 
 void Task::initCorrectAnswer(){
     for(auto& ans : answers){
@@ -34,8 +37,14 @@ Answer* Task::getCorrectAnswer(){
 }
 
 void Task::complete(Answer currentAnswer) {
+    qInfo() << "Получен ответ от пользователя с текстом: " + currentAnswer.getText();
     hasUserAnswer = true;
-    if(correctAnswer->getText() == currentAnswer.getText()){
+    qInfo() << "Сравнение: правильный ответ -  " +
+               correctAnswer->getText() +
+               " полученный ответ - " +
+               currentAnswer.getText();
+    if(correctAnswer != nullptr
+            && correctAnswer->getText() == currentAnswer.getText()){
         isDoneCorrect = true;
         return;
     }

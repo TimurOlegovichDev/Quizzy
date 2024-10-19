@@ -1,4 +1,5 @@
 #include "statisticservice.h"
+#include <QDebug>
 
 StatisticService::StatisticService(){
 
@@ -12,7 +13,9 @@ StatisticService::StatisticService(){
  * @return созданную таблицу
  */
 QTableWidget *StatisticService::getTableStatistic(const QList<Task*> tasks){
+    qInfo() << "Выполняется подсчет статистики";
      QTableWidget* table = new QTableWidget(tasks.size(), 3);
+     table->setStyleSheet("background-color: rgb(255, 255, 255);");
      table->setHorizontalHeaderLabels(
                  QStringList() << "Вопрос" << "Правильный ответ" << "Оценка"
      );
@@ -20,18 +23,17 @@ QTableWidget *StatisticService::getTableStatistic(const QList<Task*> tasks){
      for(auto& task : tasks){
          QTableWidgetItem* itemQuestion = new QTableWidgetItem(task->getQuestion().getText());
          QTableWidgetItem* itemCorrectAnswer = new QTableWidgetItem(task->getCorrectAnswer()->getText());
-         QTableWidgetItem* itemColor = new QTableWidgetItem();
+         table->setItem(row, 0, itemQuestion);
+         table->setItem(row, 1, itemCorrectAnswer);
 
-         if(task->hasAnswer()){
+         QTableWidgetItem* itemColor = new QTableWidgetItem();
+         if(!task->hasAnswer()){
              itemColor->setBackgroundColor(Qt::yellow);
          } else if(task->isCorrect()){
              itemColor->setBackgroundColor(Qt::green);
          } else {
              itemColor->setBackgroundColor(Qt::red);
          }
-
-         table->setItem(row, 0, itemQuestion);
-         table->setItem(row, 1, itemCorrectAnswer);
          table->setItem(row, 2, itemColor);
          row++;
      }
@@ -45,6 +47,7 @@ QTableWidget *StatisticService::getTableStatistic(const QList<Task*> tasks){
  * @return процент правильных ответов
  */
 int StatisticService::getCorrectAnswerPercent(const QList<Task *> tasks){
+    qInfo() << "Выполняется подсчет процента правильных ответов";
     int correctCount = 0;
     int totalCount = tasks.size();
     int totalPersents = 100;
