@@ -47,7 +47,7 @@
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
           <widget class="QLabel" name="timeLabel">
@@ -249,7 +249,7 @@ color: rgb(244, 244, 244);
          <property name="styleSheet">
           <string notr="true">QRadioButton {
     spacing: 5px; /* Расстояние между текстом и кнопкой */
-    font-size: 22px; /* Размер шрифта */
+    font-size: 28px; /* Размер шрифта */
     color: #e7e7e7; /* Цвет текста */
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, 
         stop:0 rgba(255, 178, 102, 0), 
@@ -259,6 +259,7 @@ color: rgb(244, 244, 244);
 }
 
 QRadioButton::indicator {
+	margin-right: 30px;
     width: 30px; /* Ширина кнопки */
     height: 30px; /* Высота кнопки */
     border: 2px solid #6A1B9A; /* Цвет рамки */
@@ -297,7 +298,7 @@ QRadioButton::indicator:unchecked:hover {
          <property name="styleSheet">
           <string notr="true">QRadioButton {
     spacing: 5px; /* Расстояние между текстом и кнопкой */
-    font-size: 22px; /* Размер шрифта */
+    font-size: 28px; /* Размер шрифта */
     color: #e7e7e7; /* Цвет текста */
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, 
         stop:0 rgba(255, 178, 102, 0), 
@@ -307,6 +308,7 @@ QRadioButton::indicator:unchecked:hover {
 }
 
 QRadioButton::indicator {
+	margin-right: 30px;
     width: 30px; /* Ширина кнопки */
     height: 30px; /* Высота кнопки */
     border: 2px solid #6A1B9A; /* Цвет рамки */
@@ -345,7 +347,7 @@ QRadioButton::indicator:unchecked:hover {
          <property name="styleSheet">
           <string notr="true">QRadioButton {
     spacing: 5px; /* Расстояние между текстом и кнопкой */
-    font-size: 22px; /* Размер шрифта */
+    font-size: 28px; /* Размер шрифта */
     color: #e7e7e7; /* Цвет текста */
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, 
         stop:0 rgba(255, 178, 102, 0), 
@@ -355,6 +357,7 @@ QRadioButton::indicator:unchecked:hover {
 }
 
 QRadioButton::indicator {
+	margin-right: 30px;
     width: 30px; /* Ширина кнопки */
     height: 30px; /* Высота кнопки */
     border: 2px solid #6A1B9A; /* Цвет рамки */
@@ -393,7 +396,7 @@ QRadioButton::indicator:unchecked:hover {
          <property name="styleSheet">
           <string notr="true">QRadioButton {
     spacing: 5px; /* Расстояние между текстом и кнопкой */
-    font-size: 22px; /* Размер шрифта */
+    font-size: 28px; /* Размер шрифта */
     color: #e7e7e7; /* Цвет текста */
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, 
         stop:0 rgba(255, 178, 102, 0), 
@@ -403,6 +406,7 @@ QRadioButton::indicator:unchecked:hover {
 }
 
 QRadioButton::indicator {
+	margin-right: 30px;
     width: 30px; /* Ширина кнопки */
     height: 30px; /* Высота кнопки */
     border: 2px solid #6A1B9A; /* Цвет рамки */
