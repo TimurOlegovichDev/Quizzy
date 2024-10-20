@@ -17,6 +17,7 @@ class TaskRepository
         void clear();
         void resetAllTasks();
 
+        void shuffleList();
     private:
 
         QList<Task*> data;

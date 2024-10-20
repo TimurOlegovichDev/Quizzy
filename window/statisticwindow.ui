@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>1200</width>
     <height>1000</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Quizzy</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resourses.qrc">
+    <normaloff>:/icon/quiz.png</normaloff>:/icon/quiz.png</iconset>
   </property>
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
@@ -212,6 +216,8 @@ QPushButton:pressed {
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resourses.qrc"/>
+ </resources>
  <connections/>
 </ui>

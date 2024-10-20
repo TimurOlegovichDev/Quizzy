@@ -35,6 +35,7 @@ void MainWindow::on_startButton_clicked(){
         qInfo() << "Тасков нет, запуск квиза невозможен";
         return;
     }
+    taskRepository->shuffleList();
     emit sendRequest(WindowRequest(Statement::QUIZ_RUN));
     this->close();
 }

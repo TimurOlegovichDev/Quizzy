@@ -12,33 +12,40 @@ StatisticService::StatisticService(){}
  */
 QTableWidget *StatisticService::getTableStatistic(const QList<Task*> tasks){
     qInfo() << "Выполняется подсчет статистики";
-     QTableWidget* table = new QTableWidget(tasks.size(), 4);
-     table->setStyleSheet("background-color: rgb(255, 255, 255); font: 75  18pt \"Bahnschrift\";");
-     table->setHorizontalHeaderLabels(
-                 QStringList() << "Вопрос" << "Правильный ответ" << "Оценка" << "Оставшееся время"
-     );
-     int row = 0;
-     for(auto& task : tasks){
-         QTableWidgetItem* itemQuestion = new QTableWidgetItem(task->getQuestion().getText());
-         QTableWidgetItem* itemCorrectAnswer = new QTableWidgetItem(task->getCorrectAnswer()->getText());
-         QTableWidgetItem* itemTime = new QTableWidgetItem(QString::number(task->timeInSeconds));
-         table->setItem(row, 0, itemQuestion);
-         table->setItem(row, 1, itemCorrectAnswer);
-         table->setItem(row, 3, itemTime);
+    QTableWidget* table = new QTableWidget(tasks.size(), 4);
+    table->setStyleSheet("background-color: rgb(255, 255, 255); font: 75  18pt \"Bahnschrift\";");
+    table->setHorizontalHeaderLabels(
+                QStringList() << "Вопрос" << "Правильный ответ" << "" << "Оставшееся время"
+                );
+    table->setColumnWidth(0, 400);
+    table->setColumnWidth(1, 300);
+    table->setColumnWidth(2, 70);
+    table->setColumnWidth(3, 300);
+    int row = 0;
+    for(auto& task : tasks){
+        QTableWidgetItem* itemQuestion = new QTableWidgetItem(task->getQuestion().getText());
+        QTableWidgetItem* itemCorrectAnswer = new QTableWidgetItem(task->getCorrectAnswer()->getText());
+        QTableWidgetItem* itemTime = new QTableWidgetItem(QString::number(task->timeInSeconds));
+        itemQuestion->setTextAlignment(Qt::AlignCenter);
+        itemCorrectAnswer->setTextAlignment(Qt::AlignCenter);
+        itemTime->setTextAlignment(Qt::AlignCenter);
+        table->setItem(row, 0, itemQuestion);
+        table->setItem(row, 1, itemCorrectAnswer);
+        table->setItem(row, 3, itemTime);
 
-         table->setRowHeight(row, 50);
-         QTableWidgetItem* itemColor = new QTableWidgetItem();
-         if(!task->hasAnswer()){
-             itemColor->setBackgroundColor(Qt::yellow);
-         } else if(task->isCorrect()){
-             itemColor->setBackgroundColor(Qt::green);
-         } else {
-             itemColor->setBackgroundColor(Qt::red);
-         }
-         table->setItem(row, 2, itemColor);
-         row++;
-     }
-     return table;
+        table->setRowHeight(row, 70);
+        QTableWidgetItem* itemColor = new QTableWidgetItem();
+        if(!task->hasAnswer()){
+            itemColor->setBackgroundColor(Qt::yellow);
+        } else if(task->isCorrect()){
+            itemColor->setBackgroundColor(Qt::green);
+        } else {
+            itemColor->setBackgroundColor(Qt::red);
+        }
+        table->setItem(row, 2, itemColor);
+        row++;
+    }
+    return table;
 }
 
 
